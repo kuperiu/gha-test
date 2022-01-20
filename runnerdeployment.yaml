@@ -1,0 +1,15 @@
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: example-runnerdeploy
+  namespace: actions-runner-system
+spec:
+  replicas: 2
+  template:
+    spec:
+      repository: lemonade-hq/gha-test
+      securityContext:
+        fsGroup: 1000
+      serviceAccountName: github-runner
+      env: []
+
